@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Local secrets
+Config/Secrets.xcconfig
+Website/.env*
+!Website/.env.example
+
+# Vercel
+.vercel/
+Website/.vercel/
+
+# Node
+node_modules/
+Website/node_modules/

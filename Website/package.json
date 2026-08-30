@@ -1,0 +1,9 @@
+{
+  "name": "bandloop-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check script.js && node --check api/feedback.js && node api/feedback.test.js"
+  }
+}

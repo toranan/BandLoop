@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e0e0c" />
+    <meta name="description" content="BandLoop 사용 방법과 지원 안내." />
+    <title>지원 — BandLoop</title>
+    <link rel="icon" href="/assets/app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Noto+Sans+KR:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="legal-page">
+    <header class="site-header">
+      <a class="brand" href="/"><img src="/assets/app-icon.png" alt="" /><span>BANDLOOP</span></a>
+      <nav aria-label="주요 메뉴"><a href="/#features">기능</a><a href="/#screens">화면</a><a href="/privacy">개인정보</a></nav>
+      <a class="header-cta" href="#feedback">개선 제안</a>
+    </header>
+
+    <main class="legal-main">
+      <p class="kicker">BANDLOOP SUPPORT</p>
+      <h1>연습에만 집중할 수 있도록.</h1>
+      <p class="legal-lead">사용 중 막히는 부분이 있거나 원하는 기능이 있다면 편하게 알려주세요.</p>
+
+      <div class="support-grid">
+        <article class="support-card"><span>⌁</span><div><h2>영상 불러오기</h2><p>유튜브 링크를 입력하고 열기를 누르거나 앱 안에서 영상을 검색하세요.</p></div></article>
+        <article class="support-card"><span>↻</span><div><h2>구간 반복</h2><p>재생 중 A로 시작, B로 끝을 찍으면 해당 구간이 자동 반복됩니다.</p></div></article>
+        <article class="support-card"><span>▰</span><div><h2>구간 저장</h2><p>이 구간 저장을 누르면 영상별로 최대 10개까지 보관할 수 있습니다.</p></div></article>
+        <article class="support-card"><span>1×</span><div><h2>배속 조절</h2><p>0.5배부터 2배까지 선택한 속도가 영상과 함께 저장됩니다.</p></div></article>
+      </div>
+
+      <section class="legal-block">
+        <h2>자주 묻는 질문</h2>
+        <p><strong>최근 영상과 구간은 어디에 저장되나요?</strong><br />사용 중인 iPhone 또는 iPad 내부에만 저장됩니다. 앱을 삭제하면 함께 삭제될 수 있습니다.</p>
+        <p><strong>일부 유튜브 영상이 재생되지 않아요.</strong><br />영상 소유자가 외부 플레이어 재생을 제한했거나 연령·지역 제한이 적용된 영상은 불러오지 못할 수 있습니다.</p>
+        <p><strong>가로 화면에서 설정을 바꾸고 싶어요.</strong><br />우측 상단의 조절 버튼을 누르면 영상 위에 연습 조절 사이드바가 열립니다.</p>
+      </section>
+
+      <section id="feedback" class="legal-block">
+        <h2>개선 제안 보내기</h2>
+        <p>이름이나 이메일 없이 내용만 전달됩니다. 답변이 필요하다면 <a href="mailto:seungwon6218@naver.com">seungwon6218@naver.com</a>으로 보내주세요.</p>
+        <form id="feedback-form" class="feedback-form">
+          <label for="message">어떤 점이 더 좋아지면 좋을까요?</label>
+          <textarea id="message" name="message" maxlength="1500" minlength="3" required placeholder="불편했던 점이나 원하는 기능을 자유롭게 적어주세요."></textarea>
+          <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="form-meta"><span>내용만 익명으로 전송돼요.</span><span id="char-count">0/1500</span></div>
+          <button class="button button-primary" type="submit"><span class="button-label">보내기</span><span>↗</span></button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-brand"><img src="/assets/app-icon.png" alt="" /><div><strong>BANDLOOP</strong><span>원하는 구간만, 바로 반복.</span></div></div>
+      <div class="footer-links"><a href="/">홈</a><a href="/privacy">개인정보 처리방침</a><a href="mailto:seungwon6218@naver.com">이메일</a></div>
+      <p>© 2026 BandLoop. Built for better practice.</p>
+    </footer>
+    <script src="/script.js" defer></script>
+  </body>
+</html>

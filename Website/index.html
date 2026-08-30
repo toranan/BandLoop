@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e0e0c" />
+    <meta name="description" content="유튜브 연주 영상을 불러와 원하는 구간만 저장하고 반복하는 iPhone·iPad 밴드 연습 앱 BandLoop." />
+    <meta property="og:title" content="BandLoop — 원하는 구간만, 바로 반복" />
+    <meta property="og:description" content="합주도, 카피도. 링크를 붙이고 A와 B만 찍으면 연습이 시작됩니다." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/bandloop-ipad-home.png" />
+    <title>BandLoop — 원하는 구간만, 바로 반복</title>
+    <link rel="icon" href="/assets/app-icon.png" />
+    <link rel="apple-touch-icon" href="/assets/app-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Noto+Sans+KR:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="BandLoop 홈">
+        <img src="/assets/app-icon.png" alt="" />
+        <span>BANDLOOP</span>
+      </a>
+      <nav aria-label="주요 메뉴">
+        <a href="#features">기능</a>
+        <a href="#screens">화면</a>
+        <a href="/support">지원</a>
+      </nav>
+      <a class="header-cta" href="#feedback">개선 제안</a>
+    </header>
+
+    <main>
+      <section class="hero shell">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> iPhone · iPad 네이티브 연습 앱</div>
+          <h1>연습은 길게.<br /><em>설정은 짧게.</em></h1>
+          <p class="hero-description">
+            유튜브 링크를 붙이고 A와 B만 찍으세요. 원하는 구간, 배속, 마지막 위치까지 영상별로 기억합니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#features">기능 둘러보기 <span>↘</span></a>
+            <a class="button button-secondary" href="#feedback">써보고 싶은 기능 제안</a>
+          </div>
+          <div class="mini-proof" aria-label="주요 특징">
+            <div><strong>20</strong><span>최근 영상</span></div>
+            <div><strong>10</strong><span>영상별 저장 구간</span></div>
+            <div><strong>0.5–2×</strong><span>재생 속도</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal delay-one">
+          <div class="visual-label label-top">A — B LOOP</div>
+          <div class="ipad-frame">
+            <div class="ipad-camera"></div>
+            <img src="/assets/bandloop-ipad-home.png" alt="iPad에서 실행 중인 BandLoop 홈 화면" />
+          </div>
+          <div class="floating-card">
+            <span class="floating-icon">↻</span>
+            <div><small>반복 준비 완료</small><strong>0:07 — 0:23</strong></div>
+          </div>
+          <div class="visual-label label-bottom">MADE FOR PRACTICE</div>
+        </div>
+      </section>
+
+      <section class="marquee" aria-hidden="true">
+        <div>
+          <span>LINK</span><i>●</i><span>PLAY</span><i>●</i><span>MARK</span><i>●</i><span>LOOP</span><i>●</i>
+          <span>LINK</span><i>●</i><span>PLAY</span><i>●</i><span>MARK</span><i>●</i><span>LOOP</span><i>●</i>
+        </div>
+      </section>
+
+      <section id="features" class="section shell">
+        <div class="section-heading reveal">
+          <p class="kicker">LESS SETUP, MORE PLAY</p>
+          <h2>연습 흐름을 끊지 않는<br />네 가지 기본기.</h2>
+        </div>
+
+        <div class="bento-grid">
+          <article class="feature-card feature-wide reveal">
+            <div class="feature-number">01</div>
+            <div class="feature-copy">
+              <h3>링크 붙이고 바로 재생</h3>
+              <p>유튜브 링크를 입력하거나 앱 안에서 검색하세요. 최근 연습 영상은 최대 20개까지 바로 다시 열 수 있습니다.</p>
+            </div>
+            <div class="link-demo" aria-hidden="true">
+              <div><span>⌁</span><p>youtube.com/watch?v=...</p><b>열기</b></div>
+              <small>링크 준비됨 · 열기를 누르세요</small>
+            </div>
+          </article>
+
+          <article class="feature-card reveal delay-one">
+            <div class="feature-number">02</div>
+            <div class="marker-visual" aria-hidden="true">
+              <div class="marker marker-a"><span>A</span><strong>0:07</strong><small>시작 찍기</small></div>
+              <div class="marker marker-b"><span>B</span><strong>0:23</strong><small>끝 찍기</small></div>
+            </div>
+            <div class="feature-copy">
+              <h3>A와 B만 찍으면 반복</h3>
+              <p>재생 중 시작과 끝을 터치하고, 필요할 때 0.5초씩 정교하게 다듬으세요.</p>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-number">03</div>
+            <div class="saved-loop-visual" aria-hidden="true">
+              <span>인트로 <b>↻</b><small>0:07 — 0:23</small></span>
+              <span>기타 솔로 <b>↻</b><small>1:18 — 1:42</small></span>
+            </div>
+            <div class="feature-copy">
+              <h3>영상마다 구간 저장</h3>
+              <p>자주 연습하는 부분을 이름 붙여 보관하고 한 번의 터치로 다시 불러옵니다.</p>
+            </div>
+          </article>
+
+          <article class="feature-card feature-wide feature-landscape reveal delay-one">
+            <div class="feature-number">04</div>
+            <div class="feature-copy">
+              <h3>가로 화면에서도 자연스럽게</h3>
+              <p>영상은 크게, 조절기는 필요할 때만. 가로 화면 사이드바에서 구간과 배속을 그대로 제어합니다.</p>
+            </div>
+            <div class="landscape-visual" aria-hidden="true">
+              <div class="video-pane"><span>▶</span></div>
+              <div class="control-pane"><b>연습 조절</b><i></i><i></i><i></i></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="screens" class="section screens-section">
+        <div class="shell">
+          <div class="section-heading inline-heading reveal">
+            <div>
+              <p class="kicker">BUILT FOR THE FULL SCREEN</p>
+              <h2>iPhone에서도,<br />iPad에서도.</h2>
+            </div>
+            <p>세로로 세밀하게 설정하고, 가로로 돌려 영상에 집중하세요. 화면 크기가 달라도 연습 흐름은 같습니다.</p>
+          </div>
+        </div>
+        <div class="screen-rail reveal">
+          <figure><img src="/assets/store-ipad-01.png" alt="BandLoop 빠른 영상 불러오기 화면" /><figcaption>빠르게 영상 불러오기</figcaption></figure>
+          <figure><img src="/assets/store-ipad-02.png" alt="BandLoop 구간 반복 설정 화면" /><figcaption>터치로 구간 반복 설정</figcaption></figure>
+          <figure><img src="/assets/store-ipad-03.png" alt="BandLoop 저장 구간 불러오기 화면" /><figcaption>저장 구간 바로 불러오기</figcaption></figure>
+        </div>
+      </section>
+
+      <section class="section principles shell">
+        <div class="principle-card reveal">
+          <p class="kicker">LOCAL FIRST</p>
+          <h2>연습 기록은<br /><em>내 기기에.</em></h2>
+          <p>최근 영상, 저장한 구간, 재생 속도와 마지막 위치는 계정 없이 기기 안에 보관됩니다.</p>
+          <a href="/privacy">개인정보 처리방침 보기 →</a>
+        </div>
+        <div class="principle-quote reveal delay-one">
+          <span>“</span>
+          <blockquote>기능을 더하기 전에,<br />한 번 덜 누르게 만들기.</blockquote>
+          <p>BandLoop가 화면을 설계하는 기준입니다.</p>
+        </div>
+      </section>
+
+      <section id="feedback" class="section feedback-section">
+        <div class="feedback-wrap shell reveal">
+          <div class="feedback-copy">
+            <p class="kicker">BUILD IT TOGETHER</p>
+            <h2>어떤 점이 더<br />좋아지면 좋을까요?</h2>
+            <p>불편했던 점이나 연습할 때 필요했던 기능을 알려주세요. 이름이나 이메일 없이 내용만 전달됩니다.</p>
+          </div>
+          <form id="feedback-form" class="feedback-form">
+            <label for="message">개선 제안</label>
+            <textarea id="message" name="message" maxlength="1500" minlength="3" required placeholder="예) 저장한 구간의 순서를 바꿀 수 있으면 좋겠어요."></textarea>
+            <input class="honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="form-meta"><span>내용만 익명으로 전송돼요.</span><span id="char-count">0/1500</span></div>
+            <button class="button button-primary" type="submit"><span class="button-label">보내기</span><span>↗</span></button>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <div class="footer-brand"><img src="/assets/app-icon.png" alt="" /><div><strong>BANDLOOP</strong><span>원하는 구간만, 바로 반복.</span></div></div>
+      <div class="footer-links"><a href="/support">지원</a><a href="/privacy">개인정보 처리방침</a><a href="mailto:seungwon6218@naver.com">이메일</a><a href="https://github.com/toranan/BandLoop">GitHub</a></div>
+      <p>© 2026 BandLoop. Built for better practice.</p>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>
