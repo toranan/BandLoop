@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e0e0c" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>개선 제안함 — BandLoop</title>
+    <link rel="icon" href="/assets/app-icon.png" />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <div class="admin-glow" aria-hidden="true"></div>
+
+    <header class="admin-header">
+      <a class="admin-brand" href="/" aria-label="BandLoop 홈">
+        <img src="/assets/app-icon.png" alt="" />
+        <span>BANDLOOP</span>
+      </a>
+      <div id="session-actions" class="session-actions" hidden>
+        <button id="refresh-button" class="quiet-button" type="button">새로고침</button>
+        <button id="logout-button" class="quiet-button" type="button">잠금</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section id="login-view" class="login-card" aria-labelledby="login-title">
+        <div class="lock-mark" aria-hidden="true">↳</div>
+        <p class="eyebrow">PRIVATE INBOX</p>
+        <h1 id="login-title">개선 제안함</h1>
+        <p class="login-copy">처음 한 번만 확인하면 이 기기에서는 바로 개선 제안함이 열립니다.</p>
+
+        <form id="login-form" class="login-form">
+          <label for="password">관리자 비밀번호</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+          <button class="primary-button" type="submit"><span>확인하기</span><span>→</span></button>
+          <p id="login-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="inbox-view" class="inbox-view" aria-labelledby="inbox-title" hidden>
+        <div class="inbox-heading">
+          <div>
+            <p class="eyebrow">BANDLOOP FEEDBACK</p>
+            <h1 id="inbox-title">개선 제안</h1>
+          </div>
+          <p id="feedback-count" class="feedback-count">0개의 의견</p>
+        </div>
+
+        <p id="inbox-status" class="status inbox-status" role="status" aria-live="polite"></p>
+        <div id="feedback-list" class="feedback-list"></div>
+      </section>
+    </main>
+
+    <template id="feedback-template">
+      <article class="feedback-card">
+        <div class="feedback-card-top">
+          <span class="source-badge"></span>
+          <time></time>
+        </div>
+        <p class="feedback-message"></p>
+        <div class="feedback-meta">
+          <span class="app-version"></span>
+          <span class="feedback-number"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="/feedback-admin.js" defer></script>
+  </body>
+</html>

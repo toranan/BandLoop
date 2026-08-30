@@ -134,6 +134,8 @@ cd Website && npm run check
 
 Vercel 프로젝트는 저장소 루트에서 배포합니다. 루트의 `vercel.json`이 `Website/`의 정적 페이지와 `api/`의 Serverless Function을 연결합니다. 프로젝트의 Storage 탭에서 **Private Blob** 저장소를 연결하면 Vercel의 단기 OIDC 인증이 자동 적용되고, 앱과 웹에서 접수한 의견이 `feedback/` 폴더에 JSON으로 쌓입니다. 장기 저장소 토큰은 사용하거나 소스에 커밋하지 않습니다.
 
+운영자는 검색 엔진에서 제외된 `/feedback-admin` 화면에서 개선 제안을 읽습니다. 내용 조회 API는 `FEEDBACK_ADMIN_PASSWORD` 환경변수와 HTTPS Authorization 헤더로 보호되며, 비밀번호는 소스나 URL에 포함하지 않습니다. 최초 인증은 해당 브라우저에만 보관되어 이후 방문에서는 입력을 반복하지 않습니다.
+
 ```bash
 cd Website && npm run check
 cd .. && vercel --prod

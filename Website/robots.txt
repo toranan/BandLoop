@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /feedback-admin
 
 Sitemap: https://band-loop.vercel.app/sitemap.xml
