@@ -5,5 +5,8 @@
   "scripts": {
     "build": "node scripts/build-website.mjs",
     "check": "npm --prefix Website run check"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.8.0"
   }
 }

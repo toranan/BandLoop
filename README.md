@@ -59,14 +59,14 @@ flowchart LR
     A --> L[(기기 로컬 저장소)]
     A --> F[Vercel Feedback API]
     W[Support Website] --> F
-    F --> G[(Private GitHub Issues)]
+    F --> B[(Private Vercel Blob)]
 ```
 
 - 앱은 SwiftUI 기반 단일 타깃으로 iPhone과 iPad 레이아웃을 함께 제공합니다.
 - `HistoryStore`가 최근 영상과 영상별 연습 상태를 로컬에 저장합니다.
 - `YouTubePlayerController`가 재생·탐색·배속·반복 상태를 SwiftUI에 전달합니다.
 - 소개·지원·개인정보 페이지와 피드백 API는 `Website/`에서 함께 Vercel에 배포됩니다.
-- 개선 제안용 GitHub 토큰은 앱이나 저장소에 포함하지 않고 Vercel 환경변수에만 둡니다.
+- 개선 제안은 BandLoop Vercel 프로젝트의 비공개 Blob 저장소에 JSON으로 보관합니다.
 
 더 자세한 책임 분리와 데이터 흐름은 [Architecture](docs/ARCHITECTURE.md)에서 확인할 수 있습니다.
 
@@ -83,7 +83,7 @@ BandLoop/
 │   └── Utilities/            # 회전 및 시간 표현
 ├── BandLoopTests/            # URL 파싱·저장소 단위 테스트
 ├── Website/                  # Vercel 정적 사이트 + Serverless API
-│   ├── api/feedback.js       # 의견을 비공개 GitHub Issue로 전달
+│   ├── api/feedback.js       # 의견 검증과 비공개 저장
 │   └── assets/               # 웹 디자인 자산
 ├── Design/                   # 앱 아이콘과 App Store 이미지
 ├── Config/                   # 로컬 빌드 설정 예시
@@ -115,7 +115,7 @@ open BandLoop.xcodeproj
 
 ## 검증
 
-앱은 서명 없이 generic iOS Simulator 대상으로 컴파일할 수 있고, URL 파싱과 최근 영상 저장 규칙은 단위 테스트로 확인합니다. 웹은 별도 패키지 설치 없이 JavaScript 구문과 피드백 API의 검증·Issue 생성 요청을 테스트합니다.
+앱은 서명 없이 generic iOS Simulator 대상으로 컴파일할 수 있고, URL 파싱과 최근 영상 저장 규칙은 단위 테스트로 확인합니다. 웹은 JavaScript 구문과 피드백 API의 입력 검증·저장 요청을 테스트합니다.
 
 ```bash
 # iOS 빌드
@@ -132,15 +132,7 @@ cd Website && npm run check
 
 ## 웹사이트와 피드백 배포
 
-Vercel 프로젝트는 저장소 루트에서 배포합니다. 루트의 `vercel.json`이 `Website/`의 정적 페이지와 `api/`의 Serverless Function을 연결합니다. 아래 환경변수를 설정하면 개선 제안이 비공개 GitHub Issues로 전달됩니다.
-
-| 환경변수 | 설명 |
-| --- | --- |
-| `GITHUB_FEEDBACK_TOKEN` | 피드백 저장소 한 곳에만 `Issues: write`를 가진 fine-grained token |
-| `GITHUB_FEEDBACK_OWNER` | 비공개 피드백 저장소 소유자 |
-| `GITHUB_FEEDBACK_REPO` | 비공개 피드백 저장소 이름 |
-
-앱과 웹에서 접수한 내용은 이슈 하나로 생성됩니다. 토큰은 `.env`나 소스에 커밋하지 않습니다.
+Vercel 프로젝트는 저장소 루트에서 배포합니다. 루트의 `vercel.json`이 `Website/`의 정적 페이지와 `api/`의 Serverless Function을 연결합니다. 프로젝트의 Storage 탭에서 **Private Blob** 저장소를 연결하면 Vercel의 단기 OIDC 인증이 자동 적용되고, 앱과 웹에서 접수한 의견이 `feedback/` 폴더에 JSON으로 쌓입니다. 장기 저장소 토큰은 사용하거나 소스에 커밋하지 않습니다.
 
 ```bash
 cd Website && npm run check

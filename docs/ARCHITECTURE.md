@@ -59,17 +59,17 @@ sequenceDiagram
     participant User as 사용자
     participant App as BandLoop 앱/웹
     participant API as Vercel Function
-    participant GitHub as Private GitHub Issues
+    participant Storage as Private Vercel Blob
     User->>App: 개선 제안 입력 후 보내기
     App->>API: POST /api/feedback
     API->>API: 길이·형식 검증
-    API->>GitHub: Fine-grained token으로 Issue 생성
-    GitHub-->>API: 생성 완료
+    API->>Storage: 의견 JSON 비공개 저장
+    Storage-->>API: 저장 완료
     API-->>App: 201 Created
     App-->>User: 접수 완료 표시
 ```
 
-GitHub 토큰은 Vercel 환경변수에서만 읽고, 권한 범위는 비공개 피드백 저장소의 `Issues: write`로 제한합니다. 앱은 이름, 이메일, 영상 링크나 기기 식별자를 전송하지 않습니다.
+비공개 Blob은 Vercel Function에 자동 주입되는 단기 OIDC 인증으로 접근합니다. 장기 저장소 토큰은 앱이나 GitHub 저장소에 포함하지 않습니다. 앱은 이름, 이메일, 영상 링크나 기기 식별자를 전송하지 않습니다.
 
 ## 6. 외부 의존성과 실패 처리
 

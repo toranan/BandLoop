@@ -24,3 +24,5 @@ Website/node_modules/
 
 # Generated Vercel static output
 public/
+.vercel
+.env*.local
