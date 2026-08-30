@@ -6,6 +6,7 @@ struct FeedbackSheet: View {
     @State private var isSending = false
     @State private var isSent = false
     @State private var errorMessage: String?
+    @State private var sendFeedbackTrigger = 0
     @FocusState private var messageIsFocused: Bool
 
     private let service = FeedbackService()
@@ -92,10 +93,11 @@ struct FeedbackSheet: View {
             Spacer(minLength: 0)
 
             Button(action: send) {
-                Group {
+                HStack(spacing: 9) {
                     if isSending {
                         ProgressView()
                             .tint(.black)
+                        Text("보내는 중…")
                     } else {
                         Label("보내기", systemImage: "paperplane.fill")
                     }
@@ -103,12 +105,13 @@ struct FeedbackSheet: View {
                 .font(.headline.bold())
                 .frame(maxWidth: .infinity)
                 .frame(height: 56)
+                .foregroundStyle(Color.black)
+                .background(BandLoopTheme.accent, in: RoundedRectangle(cornerRadius: 17, style: .continuous))
+                .contentShape(RoundedRectangle(cornerRadius: 17, style: .continuous))
             }
-            .foregroundStyle(Color.black)
-            .background(BandLoopTheme.accent, in: RoundedRectangle(cornerRadius: 17, style: .continuous))
-            .buttonStyle(.plain)
-            .disabled(!canSend)
-            .opacity(canSend ? 1 : 0.45)
+            .buttonStyle(FeedbackSendButtonStyle())
+            .disabled(isSending)
+            .sensoryFeedback(.impact(weight: .medium), trigger: sendFeedbackTrigger)
         }
         .frame(maxWidth: 680)
         .frame(maxWidth: .infinity)
@@ -144,10 +147,6 @@ struct FeedbackSheet: View {
         .padding(30)
     }
 
-    private var canSend: Bool {
-        !isSending && message.trimmingCharacters(in: .whitespacesAndNewlines).count >= 3
-    }
-
     private var limitedMessage: Binding<String> {
         Binding(
             get: { message },
@@ -157,8 +156,12 @@ struct FeedbackSheet: View {
 
     private func send() {
         let trimmedMessage = message.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard trimmedMessage.count >= 3 else { return }
+        guard !trimmedMessage.isEmpty else {
+            errorMessage = "내용을 한 글자 이상 입력해 주세요."
+            return
+        }
 
+        sendFeedbackTrigger += 1
         messageIsFocused = false
         errorMessage = nil
         isSending = true
@@ -179,5 +182,14 @@ struct FeedbackSheet: View {
                 }
             }
         }
+    }
+}
+
+private struct FeedbackSendButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.97 : 1)
+            .brightness(configuration.isPressed ? -0.1 : 0)
+            .animation(.easeOut(duration: 0.1), value: configuration.isPressed)
     }
 }

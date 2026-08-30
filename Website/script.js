@@ -18,8 +18,8 @@ if (form) {
     const message = textarea.value.trim();
     const website = form.elements.website.value;
 
-    if (message.length < 3) {
-      status.textContent = "의견을 세 글자 이상 입력해 주세요.";
+    if (message.length < 1) {
+      status.textContent = "의견을 한 글자 이상 입력해 주세요.";
       status.dataset.state = "error";
       return;
     }

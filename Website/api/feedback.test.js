@@ -24,7 +24,7 @@ assert.equal(methodResult.statusCode, 405);
 const malformedResult = await run({ method: "POST", body: "{" });
 assert.equal(malformedResult.statusCode, 400);
 
-const shortResult = await run({ method: "POST", body: { message: "  a " } });
+const shortResult = await run({ method: "POST", body: { message: "   " } });
 assert.equal(shortResult.statusCode, 400);
 
 let savedFeedback;
@@ -34,11 +34,11 @@ const testHandler = createFeedbackHandler(async (record) => {
 
 const successResult = await run({
   method: "POST",
-  body: { message: "저장 구간 순서를 바꾸고 싶어요.", source: "BandLoop iOS", appVersion: "1.0" },
+  body: { message: "굿", source: "BandLoop iOS", appVersion: "1.0" },
 }, testHandler);
 assert.equal(successResult.statusCode, 201);
 assert.equal(successResult.json.ok, true);
-assert.equal(savedFeedback.message, "저장 구간 순서를 바꾸고 싶어요.");
+assert.equal(savedFeedback.message, "굿");
 assert.equal(savedFeedback.source, "BandLoop iOS");
 assert.equal(savedFeedback.appVersion, "1.0");
 assert.match(savedFeedback.createdAt, /^\d{4}-\d{2}-\d{2}T/);

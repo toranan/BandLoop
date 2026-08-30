@@ -1,7 +1,7 @@
 import { put } from "@vercel/blob";
 import { randomUUID } from "node:crypto";
 
-const minimumLength = 3;
+const minimumLength = 1;
 const maximumLength = 1500;
 
 function sendJSON(response, status, payload) {
@@ -72,7 +72,7 @@ export function createFeedbackHandler(saveFeedback = storeFeedback) {
     const appVersion = clean(body.appVersion, 30) || "unknown";
 
     if (message.length < minimumLength) {
-      return sendJSON(response, 400, { error: "의견을 세 글자 이상 입력해 주세요." });
+      return sendJSON(response, 400, { error: "의견을 한 글자 이상 입력해 주세요." });
     }
     if (message.length > maximumLength) {
       return sendJSON(response, 400, { error: `의견은 ${maximumLength}자까지 입력할 수 있어요.` });
