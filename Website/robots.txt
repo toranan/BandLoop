@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bandloop-support.vercel.app/sitemap.xml
+Sitemap: https://band-loop.vercel.app/sitemap.xml

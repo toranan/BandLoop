@@ -9,9 +9,9 @@
     <img alt="iPhone & iPad" src="https://img.shields.io/badge/Device-iPhone%20%26%20iPad-DCFF3F?style=flat-square&labelColor=111111" />
   </p>
   <p>
-    <a href="https://bandloop-support.vercel.app">Website</a> ·
-    <a href="https://bandloop-support.vercel.app/support">Support</a> ·
-    <a href="https://bandloop-support.vercel.app/privacy">Privacy</a>
+    <a href="https://band-loop.vercel.app">Website</a> ·
+    <a href="https://band-loop.vercel.app/support">Support</a> ·
+    <a href="https://band-loop.vercel.app/privacy">Privacy</a>
   </p>
 </div>
 
@@ -132,7 +132,7 @@ cd Website && npm run check
 
 ## 웹사이트와 피드백 배포
 
-Vercel 프로젝트의 Root Directory를 `Website`로 지정하고 아래 환경변수를 설정합니다.
+Vercel 프로젝트는 저장소 루트에서 배포합니다. 루트의 `vercel.json`이 `Website/`의 정적 페이지와 `api/`의 Serverless Function을 연결합니다. 아래 환경변수를 설정하면 개선 제안이 비공개 GitHub Issues로 전달됩니다.
 
 | 환경변수 | 설명 |
 | --- | --- |
@@ -143,9 +143,8 @@ Vercel 프로젝트의 Root Directory를 `Website`로 지정하고 아래 환경
 앱과 웹에서 접수한 내용은 이슈 하나로 생성됩니다. 토큰은 `.env`나 소스에 커밋하지 않습니다.
 
 ```bash
-cd Website
-npm run check
-vercel
+cd Website && npm run check
+cd .. && vercel --prod
 ```
 
 ## 개인정보 원칙

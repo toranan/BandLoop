@@ -311,7 +311,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YA6CU6MN98;
 				ENABLE_PREVIEWS = YES;
-				FEEDBACK_API_URL = "https://bandloop-support.vercel.app/api/feedback";
+				FEEDBACK_API_URL = "https://band-loop.vercel.app/api/feedback";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BandLoop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -337,7 +337,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YA6CU6MN98;
 				ENABLE_PREVIEWS = YES;
-				FEEDBACK_API_URL = "https://bandloop-support.vercel.app/api/feedback";
+				FEEDBACK_API_URL = "https://band-loop.vercel.app/api/feedback";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BandLoop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
