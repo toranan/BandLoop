@@ -62,7 +62,7 @@ struct FeedbackSheet: View {
                     .padding(12)
 
                 if message.isEmpty {
-                    Text("예) 저장한 구간의 순서를 바꿀 수 있으면 좋겠어요.")
+                    Text("다양한 의견을 남겨주세요!")
                         .font(.body)
                         .foregroundStyle(BandLoopTheme.secondaryText.opacity(0.72))
                         .padding(.horizontal, 17)
