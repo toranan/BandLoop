@@ -77,9 +77,6 @@ struct FeedbackSheet: View {
             }
 
             HStack {
-                Text("이름이나 이메일 없이 내용만 전송돼요.")
-                    .font(.caption)
-                    .foregroundStyle(BandLoopTheme.secondaryText)
                 Spacer()
                 Text("\(message.count)/\(maximumLength)")
                     .font(.caption.monospacedDigit())
