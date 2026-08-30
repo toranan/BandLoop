@@ -1,0 +1,9 @@
+{
+  "name": "bandloop",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-website.mjs",
+    "check": "npm --prefix Website run check"
+  }
+}

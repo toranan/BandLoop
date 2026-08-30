@@ -21,3 +21,6 @@ Website/.vercel/
 # Node
 node_modules/
 Website/node_modules/
+
+# Generated Vercel static output
+public/
