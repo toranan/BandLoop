@@ -9,11 +9,14 @@ final class YouTubePlayerController: NSObject, ObservableObject {
     @Published private(set) var duration: Double = 0
     @Published private(set) var videoTitle = ""
     @Published private(set) var loopCount = 0
+    @Published private(set) var playbackState = -1
+    @Published private(set) var playbackEndedCount = 0
     @Published private(set) var errorMessage: String?
 
     private weak var webView: WKWebView?
     private var currentVideoID: String?
     private var requestedStartTime: Double = 0
+    private var requestedAutoplay = true
     private var desiredRate: Double = 1
     private var loopStart: Double?
     private var loopEnd: Double?
@@ -31,12 +34,16 @@ final class YouTubePlayerController: NSObject, ObservableObject {
         }
     }
 
-    func load(videoID: String, startAt: Double = 0) {
+    func load(videoID: String, startAt: Double = 0, autoplay: Bool = true) {
         currentVideoID = videoID
         requestedStartTime = max(0, startAt)
+        requestedAutoplay = autoplay
         currentTime = requestedStartTime
+        duration = 0
         videoTitle = ""
         loopCount = 0
+        playbackState = -1
+        isPlaying = false
         errorMessage = nil
         guard isReady else { return }
         sendLoadCommand()
@@ -83,7 +90,8 @@ final class YouTubePlayerController: NSObject, ObservableObject {
 
     private func sendLoadCommand() {
         guard let currentVideoID else { return }
-        evaluate("bandLoopLoad('\(currentVideoID)', \(javascriptNumber(requestedStartTime)))")
+        let command = requestedAutoplay ? "bandLoopLoad" : "bandLoopCue"
+        evaluate("\(command)('\(currentVideoID)', \(javascriptNumber(requestedStartTime)))")
         evaluate("bandLoopSetRate(\(javascriptNumber(desiredRate)))")
         applyLoopConfiguration()
     }
@@ -122,6 +130,10 @@ extension YouTubePlayerController: WKScriptMessageHandler {
                 self.sendLoadCommand()
             case "state":
                 let state = (body["value"] as? NSNumber)?.intValue ?? -1
+                if state == 0, self.playbackState != 0 {
+                    self.playbackEndedCount += 1
+                }
+                self.playbackState = state
                 self.isPlaying = state == 1
             case "time":
                 if let current = body["current"] as? NSNumber {

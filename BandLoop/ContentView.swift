@@ -5,6 +5,8 @@ import UIKit
 struct ContentView: View {
     @StateObject private var history = HistoryStore()
     @StateObject private var player = YouTubePlayerController()
+    @StateObject private var iemLibrary = IEMLibraryStore()
+    @StateObject private var iemSetlists = IEMSetlistStore()
     @Environment(\.scenePhase) private var scenePhase
 
     @State private var currentVideo: RecentVideo?
@@ -12,6 +14,7 @@ struct ContentView: View {
     @State private var linkError: String?
     @State private var isSearchPresented = false
     @State private var isFeedbackPresented = false
+    @State private var isIEMLibraryPresented = false
     @FocusState private var linkFieldFocused: Bool
 
     private let saveTimer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
@@ -29,6 +32,14 @@ struct ContentView: View {
                     onPersist: persistActiveVideo
                 )
                 .id(currentVideo?.id)
+            } else if isIEMLibraryPresented {
+                IEMLibraryScreen(
+                    library: iemLibrary,
+                    setlists: iemSetlists,
+                    player: player,
+                    onBack: { isIEMLibraryPresented = false },
+                    onOpen: openIEMTrack
+                )
             } else {
                 HomeScreen(
                     linkText: $linkText,
@@ -38,6 +49,7 @@ struct ContentView: View {
                     onOpenLink: openFromInput,
                     onSearch: { isSearchPresented = true },
                     onFeedback: { isFeedbackPresented = true },
+                    onOpenIEM: { isIEMLibraryPresented = true },
                     onOpenRecent: openVideo,
                     onRemoveRecent: history.remove,
                     onClearHistory: history.removeAll
@@ -133,6 +145,27 @@ struct ContentView: View {
         player.setLoop(start: refreshed.loopStart, end: refreshed.loopEnd, enabled: refreshed.hasLoop)
     }
 
+    private func openIEMTrack(_ track: IEMTrack) {
+        if let saved = history.video(id: track.youtubeVideoID) {
+            openVideo(saved)
+            return
+        }
+
+        let video = RecentVideo(
+            id: track.youtubeVideoID,
+            sourceURL: YouTubeURLParser.canonicalURL(for: track.youtubeVideoID),
+            title: "\(track.title) · \(track.artist)",
+            lastPosition: 0,
+            duration: 0,
+            loopStart: nil,
+            loopEnd: nil,
+            playbackRate: 1,
+            updatedAt: .now
+        )
+        history.upsert(video)
+        openVideo(video)
+    }
+
     private func persistActiveVideo() {
         guard var video = currentVideo else { return }
         video.lastPosition = player.currentTime
@@ -158,6 +191,7 @@ private struct HomeScreen: View {
     let onOpenLink: () -> Void
     let onSearch: () -> Void
     let onFeedback: () -> Void
+    let onOpenIEM: () -> Void
     let onOpenRecent: (RecentVideo) -> Void
     let onRemoveRecent: (String) -> Void
     let onClearHistory: () -> Void
@@ -194,7 +228,7 @@ private struct HomeScreen: View {
         VStack(alignment: .leading, spacing: 30) {
             brand
             intro
-            linkEntry
+            entrySection
             recentSection
         }
         .frame(maxWidth: 720)
@@ -207,13 +241,20 @@ private struct HomeScreen: View {
             HStack(alignment: .top, spacing: 28) {
                 VStack(alignment: .leading, spacing: 30) {
                     intro
-                    linkEntry
+                    entrySection
                 }
                 .frame(maxWidth: .infinity, alignment: .topLeading)
 
                 recentSection
                     .frame(maxWidth: .infinity, alignment: .topLeading)
             }
+        }
+    }
+
+    private var entrySection: some View {
+        VStack(spacing: 12) {
+            linkEntry
+            iemEntry
         }
     }
 
@@ -319,6 +360,42 @@ private struct HomeScreen: View {
         }
         .padding(18)
         .cardStyle()
+    }
+
+    private var iemEntry: some View {
+        Button(action: onOpenIEM) {
+            HStack(spacing: 13) {
+                ZStack {
+                    Circle()
+                        .fill(BandLoopTheme.accent.opacity(0.14))
+                        .frame(width: 42, height: 42)
+                    Image(systemName: "headphones")
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundStyle(BandLoopTheme.accent)
+                }
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text("인이어 음원")
+                        .font(.subheadline.weight(.black))
+                        .foregroundStyle(BandLoopTheme.primaryText)
+                    Text("연습곡 목록과 셋리스트")
+                        .font(.caption)
+                        .foregroundStyle(BandLoopTheme.secondaryText)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.black))
+                    .foregroundStyle(BandLoopTheme.accent)
+            }
+            .padding(.horizontal, 15)
+            .frame(height: 68)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .cardStyle(cornerRadius: 18)
+        .accessibilityHint("인이어 연습곡 목록을 엽니다")
     }
 
     @ViewBuilder

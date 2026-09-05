@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0e0e0c" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <title>인이어 음원 관리 — BandLoop</title>
+    <link rel="icon" href="/assets/app-icon.png" />
+    <link rel="stylesheet" href="/admin.css" />
+    <link rel="stylesheet" href="/iem-admin.css" />
+  </head>
+  <body>
+    <div class="admin-glow" aria-hidden="true"></div>
+    <header class="admin-header">
+      <a class="admin-brand" href="/" aria-label="BandLoop 홈">
+        <img src="/assets/app-icon.png" alt="" />
+        <span>BANDLOOP IEM</span>
+      </a>
+      <div id="session-actions" class="session-actions" hidden>
+        <button id="refresh-button" class="quiet-button" type="button">새로고침</button>
+        <button id="logout-button" class="quiet-button" type="button">잠금</button>
+      </div>
+    </header>
+
+    <main class="admin-main iem-admin-main">
+      <section id="login-view" class="login-card" aria-labelledby="login-title">
+        <div class="lock-mark" aria-hidden="true">♫</div>
+        <p class="eyebrow">PRIVATE CATALOG</p>
+        <h1 id="login-title">인이어 음원</h1>
+        <p class="login-copy">관리자 비밀번호를 입력하면 앱에 표시할 유튜브 음원을 관리할 수 있어요.</p>
+        <form id="login-form" class="login-form">
+          <label for="password">관리자 비밀번호</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+          <button class="primary-button" type="submit"><span>열기</span><span>→</span></button>
+          <p id="login-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section id="catalog-view" hidden>
+        <div class="inbox-heading catalog-heading">
+          <div><p class="eyebrow">BANDLOOP IEM</p><h1>인이어 음원</h1></div>
+          <p id="track-count" class="feedback-count">0곡</p>
+        </div>
+
+        <section class="track-form-card">
+          <div class="form-heading">
+            <div><p class="eyebrow">YOUTUBE CATALOG</p><h2 id="form-title">새 음원 추가</h2></div>
+            <button id="cancel-edit-button" class="quiet-button" type="button" hidden>수정 취소</button>
+          </div>
+          <form id="track-form" class="track-form">
+            <input id="track-id" type="hidden" />
+            <label class="wide-field">유튜브 링크<input id="youtube-url" type="url" placeholder="https://youtu.be/..." required /></label>
+            <label>곡명<input id="track-title" maxlength="120" required /></label>
+            <label>가수<input id="track-artist" maxlength="100" required /></label>
+            <label>BPM <span>(선택)</span><input id="track-bpm" type="number" min="30" max="300" inputmode="numeric" /></label>
+            <label class="publish-field"><input id="track-published" type="checkbox" checked /><span>앱에 공개</span></label>
+            <button id="save-button" class="primary-button wide-field" type="submit"><span>목록에 추가</span><span>→</span></button>
+            <p id="form-status" class="status wide-field" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <p id="catalog-status" class="status" role="status" aria-live="polite"></p>
+        <div id="track-list" class="track-list"></div>
+      </section>
+    </main>
+
+    <template id="track-template">
+      <article class="track-card">
+        <img class="track-thumbnail" alt="" />
+        <div class="track-copy">
+          <div class="track-badges"><span class="publish-badge"></span><span class="bpm-badge"></span></div>
+          <h3></h3><p class="track-artist"></p>
+        </div>
+        <div class="track-actions">
+          <button class="quiet-button edit-button" type="button">수정</button>
+          <button class="quiet-button delete-button" type="button">삭제</button>
+        </div>
+      </article>
+    </template>
+    <script src="/iem-admin.js" defer></script>
+  </body>
+</html>

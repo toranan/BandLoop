@@ -1,0 +1,33 @@
+.iem-admin-main { width: min(1040px, calc(100% - 40px)); }
+.catalog-heading h1 { margin: 0; font-size: clamp(52px, 9vw, 78px); line-height: 1; letter-spacing: -.055em; }
+.track-form-card { margin-bottom: 36px; padding: 28px; border: 1px solid var(--line); border-radius: 26px; background: var(--surface); }
+.form-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.form-heading h2 { margin: 0; font-size: 28px; letter-spacing: -.035em; }
+.track-form { display: grid; grid-template-columns: 1fr 1fr 150px; gap: 14px; }
+.track-form label { display: grid; gap: 8px; color: var(--muted); font-size: 12px; font-weight: 800; }
+.track-form label span { font-weight: 600; }
+.track-form input:not([type="checkbox"]) { width: 100%; height: 52px; padding: 0 14px; color: var(--ink); border: 1px solid var(--line); border-radius: 14px; outline: none; background: #0f100d; }
+.track-form input:focus { border-color: rgba(220,255,63,.65); box-shadow: 0 0 0 4px rgba(220,255,63,.08); }
+.wide-field { grid-column: 1 / -1; }
+.publish-field { min-height: 48px; display: flex !important; grid-column: 1 / -1; grid-template-columns: auto 1fr !important; align-items: center; justify-content: start; gap: 10px !important; color: var(--ink) !important; }
+.publish-field input { width: 20px; height: 20px; accent-color: var(--accent); }
+.track-form .primary-button { margin-top: 0; }
+.track-list { display: grid; gap: 11px; }
+.track-card { display: grid; grid-template-columns: 132px 1fr auto; align-items: center; gap: 18px; padding: 13px; border: 1px solid var(--line); border-radius: 22px; background: var(--surface); }
+.track-thumbnail { width: 132px; aspect-ratio: 16/9; object-fit: cover; border-radius: 13px; background: var(--surface-2); }
+.track-copy h3 { margin: 8px 0 5px; font-size: 18px; }
+.track-artist { margin: 0; color: var(--muted); font-size: 13px; font-weight: 700; }
+.track-badges { display: flex; gap: 6px; }
+.track-badges span { padding: 5px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); font-size: 9px; font-weight: 900; }
+.track-badges .is-published { color: #11120d; background: var(--accent); }
+.track-actions { display: flex; gap: 7px; }
+.delete-button { color: var(--danger); }
+@media (max-width: 700px) {
+  .iem-admin-main { width: calc(100% - 24px); }
+  .track-form { grid-template-columns: 1fr; }
+  .wide-field, .publish-field { grid-column: 1; }
+  .track-card { grid-template-columns: 104px 1fr; gap: 12px; }
+  .track-thumbnail { width: 104px; }
+  .track-actions { grid-column: 1/-1; }
+  .track-actions button { flex: 1; }
+}

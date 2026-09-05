@@ -127,6 +127,12 @@ struct YouTubePlayerView: UIViewRepresentable {
           player.loadVideoById({ videoId: videoID, startSeconds: Math.max(0, startSeconds || 0) });
         }
 
+        function bandLoopCue(videoID, startSeconds) {
+          if (!playerReady) return;
+          loopSeeking = false;
+          player.cueVideoById({ videoId: videoID, startSeconds: Math.max(0, startSeconds || 0) });
+        }
+
         function bandLoopPlay() { if (playerReady) player.playVideo(); }
         function bandLoopPause() { if (playerReady) player.pauseVideo(); }
         function bandLoopSeek(seconds) { if (playerReady) player.seekTo(Math.max(0, seconds), true); }

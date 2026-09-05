@@ -4,6 +4,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check script.js && node --check feedback-admin.js && node --check api/feedback.js && node --check api/feedback-admin.js && node api/feedback.test.js && node api/feedback-admin.test.js"
+    "check": "node --check script.js && node --check feedback-admin.js && node --check iem-admin.js && node --check api/feedback.js && node --check api/feedback-admin.js && node --check api/iem-store.js && node --check api/iem.js && node --check api/iem-admin.js && node api/feedback.test.js && node api/feedback-admin.test.js && node api/iem.test.js && node api/iem-admin.test.js"
   }
 }

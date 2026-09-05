@@ -26,3 +26,9 @@ Website/node_modules/
 public/
 .vercel
 .env*.local
+
+# BandLoop Studio local analysis and rendered media
+Studio/Test/
+유투브 업로드/
+__pycache__/
+*.py[cod]

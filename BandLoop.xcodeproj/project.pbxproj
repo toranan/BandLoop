@@ -21,6 +21,7 @@
 		A0000000000000000000000C /* Search/YouTubeSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000C /* Search/YouTubeSearchService.swift */; };
 		A0000000000000000000000D /* Feedback/FeedbackService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0000000000000000000000F /* Feedback/FeedbackService.swift */; };
 		A0000000000000000000000E /* Feedback/FeedbackSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000010 /* Feedback/FeedbackSheet.swift */; };
+		A00000000000000000000013 /* IEM/IEMLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000013 /* IEM/IEMLibrary.swift */; };
 		A00000000000000000000011 /* YouTubeURLParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000011 /* YouTubeURLParserTests.swift */; };
 		A00000000000000000000012 /* HistoryStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000000000000000000012 /* HistoryStoreTests.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		B00000000000000000000010 /* Feedback/FeedbackSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback/FeedbackSheet.swift; sourceTree = "<group>"; };
 		B00000000000000000000011 /* YouTubeURLParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeURLParserTests.swift; sourceTree = "<group>"; };
 		B00000000000000000000012 /* HistoryStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreTests.swift; sourceTree = "<group>"; };
+		B00000000000000000000013 /* IEM/IEMLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEM/IEMLibrary.swift; sourceTree = "<group>"; };
 		B00000000000000000000020 /* BandLoop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BandLoop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00000000000000000000021 /* BandLoopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BandLoopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				B0000000000000000000000C /* Search/YouTubeSearchService.swift */,
 				B0000000000000000000000F /* Feedback/FeedbackService.swift */,
 				B00000000000000000000010 /* Feedback/FeedbackSheet.swift */,
+				B00000000000000000000013 /* IEM/IEMLibrary.swift */,
 				B0000000000000000000000B /* Assets.xcassets */,
 			);
 			path = BandLoop;
@@ -247,6 +250,7 @@
 				A0000000000000000000000C /* Search/YouTubeSearchService.swift in Sources */,
 				A0000000000000000000000D /* Feedback/FeedbackService.swift in Sources */,
 				A0000000000000000000000E /* Feedback/FeedbackSheet.swift in Sources */,
+				A00000000000000000000013 /* IEM/IEMLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +316,7 @@
 				DEVELOPMENT_TEAM = YA6CU6MN98;
 				ENABLE_PREVIEWS = YES;
 				FEEDBACK_API_URL = "https://band-loop.vercel.app/api/feedback";
+				IEM_CATALOG_API_URL = "https://band-loop.vercel.app/api/iem";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BandLoop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -338,6 +343,7 @@
 				DEVELOPMENT_TEAM = YA6CU6MN98;
 				ENABLE_PREVIEWS = YES;
 				FEEDBACK_API_URL = "https://band-loop.vercel.app/api/feedback";
+				IEM_CATALOG_API_URL = "https://band-loop.vercel.app/api/iem";
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = BandLoop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

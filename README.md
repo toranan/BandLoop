@@ -1,12 +1,12 @@
 <div align="center">
   <img src="Design/AppIcon-BandLoop-v4-friendly.png" width="112" alt="BandLoop 앱 아이콘" />
   <h1>BandLoop</h1>
-  <p><strong>원하는 구간만, 바로 반복.</strong><br />밴드 합주와 악기 카피를 위해 만든 iPhone·iPad 네이티브 연습 앱</p>
+  <p><strong>원하는 구간만, 바로 반복.</strong><br />밴드 합주와 악기 카피를 위한 iPhone·iPad 연습 앱</p>
   <p>
     <img alt="iOS 17+" src="https://img.shields.io/badge/iOS-17%2B-111111?style=flat-square&logo=apple" />
-    <img alt="Swift 5" src="https://img.shields.io/badge/Swift-5-F05138?style=flat-square&logo=swift&logoColor=white" />
-    <img alt="SwiftUI" src="https://img.shields.io/badge/UI-SwiftUI-0D96F6?style=flat-square" />
-    <img alt="iPhone & iPad" src="https://img.shields.io/badge/Device-iPhone%20%26%20iPad-DCFF3F?style=flat-square&labelColor=111111" />
+    <img alt="SwiftUI" src="https://img.shields.io/badge/App-SwiftUI-F05138?style=flat-square&logo=swift&logoColor=white" />
+    <img alt="Python" src="https://img.shields.io/badge/Studio-Python%20%7C%20PyTorch%20%7C%20MLX-3776AB?style=flat-square&logo=python&logoColor=white" />
+    <img alt="Vercel" src="https://img.shields.io/badge/API-Vercel-000000?style=flat-square&logo=vercel" />
   </p>
   <p>
     <a href="https://band-loop.vercel.app">Website</a> ·
@@ -17,108 +17,145 @@
 
 ![BandLoop iPad preview](Design/AppStore/iPad/02-빠르게-구간-반복-설정-v1.png)
 
-## 왜 만들었나요?
+## 만든 이유
 
-연주 영상을 따라 할 때마다 재생바를 되감고, 정확한 시작점을 다시 찾고, 배속을 다시 맞추는 흐름을 줄이고 싶었습니다. BandLoop는 유튜브 영상을 새로운 방식으로 소비하기보다 **반복 연습에 필요한 조작만 빠르고 크게 제공하는 것**에 집중합니다.
+밴드 연습 중에는 같은 10초를 몇 번이고 다시 듣습니다. 그런데 YouTube에서는 시작점을 다시 찾고, 배속을 맞추고, 화면을 돌릴 때마다 조작을 반복해야 했습니다.
 
-> 기능을 더하기 전에, 한 번 덜 누르게 만들기.
+BandLoop는 이 과정을 줄이기 위해 시작했습니다. 연습할 구간을 한 번 저장하고, 다음 연습에서 그대로 이어서 재생하는 것이 핵심입니다.
 
-## 핵심 기능
+**1인 프로젝트**로 문제 정의, 화면 설계, iOS 개발, 서버 구조, 실기기 테스트를 직접 진행했습니다. 현재 iOS 앱은 App Store Connect에 업로드한 상태입니다.
 
-| 기능 | 경험 |
+## 기능
+
+| 기능 | 내용 |
 | --- | --- |
-| 빠른 영상 불러오기 | 링크 붙여넣기 또는 앱 내 YouTube 검색 |
-| 직관적인 A–B 반복 | 재생 중 시작점 A와 끝점 B를 터치해 즉시 반복 |
-| 정밀한 구간 조절 | 시작·끝 지점을 0.5초 단위로 보정 |
-| 영상별 구간 저장 | 영상마다 최대 10개, 길게 눌러 이름 변경·삭제 |
-| 재생 속도 | 0.5×부터 2×까지 선택하고 영상별로 기억 |
-| 최근 연습 | 링크, 마지막 위치, 배속, 반복 구간을 최대 20개까지 로컬 저장 |
-| 가로 연습 모드 | 영상을 크게 유지하고 필요할 때만 조절 사이드바 표시 |
-| 개선 제안 | 앱에서 내용만 입력하면 비공개 피드백함으로 바로 접수 |
-
-## 화면
+| 영상 불러오기 | YouTube 링크 붙여넣기 또는 앱 내 검색 |
+| A–B 반복 | 시작점과 끝점을 찍고 0.5초 단위로 보정 |
+| 구간 저장 | 영상당 최대 10개, 이름 변경·삭제 |
+| 최근 연습 | 링크·재생 위치·배속·반복 구간을 최대 20개까지 로컬 저장 |
+| 인이어 연습곡 | 운영자가 추가한 YouTube 연습곡을 앱에서 재생 |
+| 셋리스트 | 곡 선택, 순서 변경, 공연용 이전·다음·다시 재생 |
+| iPad·가로 화면 | 영상을 크게 보되 필요할 때만 조절 사이드바를 표시 |
+| 개선 제안 | 앱에서 의견을 입력하면 비공개 피드백함으로 전송 |
 
 <table>
   <tr>
     <td width="50%"><img src="Design/AppStore/iPad/01-빠르게-영상-불러오기-v1.png" alt="빠른 영상 불러오기" /></td>
     <td width="50%"><img src="Design/AppStore/iPad/03-저장구간-불러오기-v2.png" alt="저장 구간 불러오기" /></td>
   </tr>
-  <tr>
-    <td align="center"><strong>빠른 영상 불러오기</strong></td>
-    <td align="center"><strong>영상별 저장 구간</strong></td>
-  </tr>
 </table>
 
-## 시스템 구조
+## 인이어 제작 도구
+
+앱을 만들고 나니 공연 연습에서 쓸 인이어 음원도 같은 목록에서 재생하고 싶었습니다. 그래서 `Studio/`에 원곡을 분석하고, 클릭과 한국어 구간 안내를 넣어 영상까지 만드는 Python 도구를 추가했습니다.
+
+```mermaid
+flowchart LR
+    A[원곡 + 앨범 이미지] --> B[allin1-mlx 분석]
+    B --> C[Beat / Downbeat / Section]
+    C --> D[구간 검수]
+    D --> E[클릭 + 한국어 Cue 합성]
+    E --> F[음원 3종 + JSON + MP4]
+```
+
+- `allin1-mlx`의 사전학습 모델로 beat·downbeat·section을 분석합니다.
+- 분석 결과는 초안으로 두고, 검수한 cue JSON으로 구간을 수정할 수 있게 했습니다.
+- BPM이 고정된 곡은 `--fixed-bpm`으로 클릭 밀림을 줄일 수 있습니다.
+- 48 kHz 원곡+guide, guide-only, music-left/guide-right 음원과 timeline JSON, 1080p MP4를 생성합니다.
+
+## 드럼 악보 실험
+
+처음에는 ADTOF Frame_RNN이 낸 kick·snare·tom·hi-hat·cymbal 5개 결과만으로 악보를 만들었습니다. 하지만 실제 드럼 악보처럼 탐과 라이드·크러시가 구분되지 않아 연주에 쓰기 어려웠습니다.
+
+그래서 모델은 onset 검출에 사용하고, 각 onset 주변의 주파수 특징을 다시 분석해 탐 위치와 심벌 종류를 보정하는 방식으로 바꾸었습니다.
+
+- 20초 chunk와 2초 context로 긴 음원을 나눠 추론합니다.
+- 최종 파일만 남기지 않고 raw activation·event를 함께 저장해 오탐지를 다시 확인할 수 있게 했습니다.
+- 박자 분석 결과의 16분음표 그리드에 맞춘 뒤 JSON·MIDI·MusicXML·PDF·스크롤 MP4로 출력합니다.
+
+```mermaid
+flowchart LR
+    A[분리된 Drum Stem] --> B[ADTOF Frame_RNN]
+    B --> C[Raw Activation / Event]
+    C --> D[주파수 특징 보정]
+    D --> E[16분음표 그리드 정렬]
+    E --> F[JSON / MIDI / MusicXML / PDF / MP4]
+```
+
+### 현재 한계
+
+이 도구는 새 모델을 학습한 연구 프로젝트가 아니라, 사전학습 모델을 실제 제작 흐름에 연결해 본 프로토타입입니다. 섹션 경계, 심벌 종류, 오픈 하이햇, 고스트 노트는 여전히 사람의 검수가 필요합니다.
+
+정확도를 숫자로 말하려면 평가 데이터가 먼저 필요합니다. 다음 단계는 짧은 음원을 직접 라벨링해 onset Precision·Recall·F1과 timing error를 측정하는 것입니다. 현재는 해당 지표가 없으므로 성능을 과장하지 않습니다.
+
+자세한 실행 방법은 [Studio README](Studio/README.md)에 정리했습니다.
+
+## 앱과 운영 서버
 
 ```mermaid
 flowchart LR
     U[사용자] --> A[SwiftUI App]
     A --> P[YouTube IFrame Player]
     A --> S[YouTube Data API v3]
-    A --> L[(기기 로컬 저장소)]
+    A --> L[(기기 로컬 저장)]
+    A --> I[Vercel IEM API]
     A --> F[Vercel Feedback API]
-    W[Support Website] --> F
-    F --> B[(Private Vercel Blob)]
+    M[운영자 페이지] --> I
+    I --> B[(Private Vercel Blob)]
+    F --> B
 ```
 
-- 앱은 SwiftUI 기반 단일 타깃으로 iPhone과 iPad 레이아웃을 함께 제공합니다.
-- `HistoryStore`가 최근 영상과 영상별 연습 상태를 로컬에 저장합니다.
-- `YouTubePlayerController`가 재생·탐색·배속·반복 상태를 SwiftUI에 전달합니다.
-- 소개·지원·개인정보 페이지와 피드백 API는 `Website/`에서 함께 Vercel에 배포됩니다.
-- 개선 제안은 BandLoop Vercel 프로젝트의 비공개 Blob 저장소에 JSON으로 보관합니다.
+최근 영상·저장 구간·셋리스트는 개인 설정이므로 기기에 저장합니다. 반면 인이어 목록은 계속 늘어나야 하므로 Vercel API로 분리했습니다. 새 곡을 추가할 때마다 앱을 다시 심사받지 않기 위한 선택입니다.
 
-더 자세한 책임 분리와 데이터 흐름은 [Architecture](docs/ARCHITECTURE.md)에서 확인할 수 있습니다.
+앱 내부의 책임 분리는 [Architecture](docs/ARCHITECTURE.md)에서 확인할 수 있습니다.
 
 ## 저장소 구성
 
 ```text
 BandLoop/
-├── BandLoop/                 # iOS 앱
-│   ├── Feedback/             # 개선 제안 UI와 API 클라이언트
-│   ├── Models/               # 영상·저장 구간 모델
-│   ├── Player/               # YouTube 플레이어와 URL 파싱
-│   ├── Search/               # YouTube Data API 검색
-│   ├── Stores/               # 최근 영상 로컬 저장
-│   └── Utilities/            # 회전 및 시간 표현
-├── BandLoopTests/            # URL 파싱·저장소 단위 테스트
-├── Website/                  # Vercel 정적 사이트 + Serverless API
-│   ├── api/feedback.js       # 의견 검증과 비공개 저장
-│   └── assets/               # 웹 디자인 자산
-├── Design/                   # 앱 아이콘과 App Store 이미지
-├── Config/                   # 로컬 빌드 설정 예시
-└── docs/ARCHITECTURE.md      # 구조와 설계 결정
+├── BandLoop/             # iPhone·iPad 앱
+│   ├── IEM/              # 인이어 목록·셋리스트·공연 재생
+│   ├── Player/           # YouTube 재생·반복 제어
+│   ├── Search/           # YouTube Data API 검색
+│   └── Stores/           # 최근 영상과 연습 상태
+├── BandLoopTests/        # iOS 단위 테스트
+├── Studio/
+│   ├── Configs/          # 검수한 cue 예시
+│   └── Scripts/          # 음원 분석·믹싱·악보·영상 생성
+├── Website/              # 소개·지원 페이지와 Serverless API
+├── Design/               # 앱 아이콘과 App Store 이미지
+└── docs/                 # 설계 문서
 ```
 
 ## 로컬 실행
 
-### 요구 사항
+### iOS
 
-- Xcode 26 이상
-- iOS 17 이상
-- YouTube Data API v3 키
-
-### 설정
-
-1. 저장소를 복제합니다.
-2. `Config/Secrets.example.xcconfig`를 `Config/Secrets.xcconfig`로 복사합니다.
-3. `YOUTUBE_API_KEY`에 Google Cloud에서 발급한 키를 입력합니다.
-4. 키의 API 제한을 **YouTube Data API v3**로 지정하고 iOS 앱 `com.bandloop.ios` 제한을 적용합니다.
-5. `BandLoop.xcodeproj`를 열고 iPhone 또는 iPad에서 실행합니다.
+Xcode 26+, iOS 17+, YouTube Data API v3 키가 필요합니다.
 
 ```bash
 cp Config/Secrets.example.xcconfig Config/Secrets.xcconfig
 open BandLoop.xcodeproj
 ```
 
-검색 결과를 선택하면 링크만 홈에 입력되며, 사용자가 `열기`를 눌렀을 때 영상을 불러옵니다.
+`Config/Secrets.xcconfig`에 `YOUTUBE_API_KEY`를 입력한 뒤 iPhone 또는 iPad에서 실행합니다. 실제 키와 운영자 비밀번호는 Git에 커밋하지 않습니다.
+
+### Studio
+
+macOS `say`, FFmpeg/ffprobe, Python 3와 모델 의존성이 필요합니다.
+
+```bash
+python3 Studio/Scripts/make_iem_video.py \
+  /path/to/song.mp3 \
+  /path/to/album-image.jpg \
+  --title "Song title" \
+  --artist "Artist" \
+  --slug song-title
+```
 
 ## 검증
 
-앱은 서명 없이 generic iOS Simulator 대상으로 컴파일할 수 있고, URL 파싱과 최근 영상 저장 규칙은 단위 테스트로 확인합니다. 웹은 JavaScript 구문과 피드백 API의 입력 검증·저장 요청을 테스트합니다.
-
 ```bash
-# iOS 빌드
 xcodebuild -project BandLoop.xcodeproj \
   -scheme BandLoop \
   -sdk iphonesimulator \
@@ -126,35 +163,8 @@ xcodebuild -project BandLoop.xcodeproj \
   -derivedDataPath /tmp/BandLoopDerivedData \
   CODE_SIGNING_ALLOWED=NO build
 
-# 웹과 피드백 API
 cd Website && npm run check
+python3 -m compileall Studio/Scripts
 ```
 
-## 웹사이트와 피드백 배포
-
-Vercel 프로젝트는 저장소 루트에서 배포합니다. 루트의 `vercel.json`이 `Website/`의 정적 페이지와 `api/`의 Serverless Function을 연결합니다. 프로젝트의 Storage 탭에서 **Private Blob** 저장소를 연결하면 Vercel의 단기 OIDC 인증이 자동 적용되고, 앱과 웹에서 접수한 의견이 `feedback/` 폴더에 JSON으로 쌓입니다. 장기 저장소 토큰은 사용하거나 소스에 커밋하지 않습니다.
-
-운영자는 검색 엔진에서 제외된 `/feedback-admin` 화면에서 개선 제안을 읽습니다. 내용 조회 API는 `FEEDBACK_ADMIN_PASSWORD` 환경변수와 HTTPS Authorization 헤더로 보호되며, 비밀번호는 소스나 URL에 포함하지 않습니다. 최초 인증은 해당 브라우저에만 보관되어 이후 방문에서는 입력을 반복하지 않습니다.
-
-```bash
-cd Website && npm run check
-cd .. && vercel --prod
-```
-
-## 개인정보 원칙
-
-- 계정 생성 없음
-- 광고 및 사용자 추적 없음
-- 최근 영상과 연습 설정은 기기 내부에 저장
-- 개선 제안은 사용자가 보내기를 선택한 경우에만 내용과 앱 버전을 전송
-- 현재 재생 영상, 이름, 이메일, 광고 식별자는 개선 제안에 첨부하지 않음
-
-전체 내용은 [개인정보 처리방침](Website/privacy.html)에 정리되어 있습니다.
-
-## 상태
-
-BandLoop 1.0은 iPhone과 iPad 배포를 준비 중입니다. 실제 합주와 개인 연습에서 발견한 마찰을 중심으로 계속 다듬고 있습니다.
-
-## 권리
-
-Copyright © 2026 BandLoop. All rights reserved. 별도의 라이선스가 명시되지 않은 한 소스와 디자인 자산의 재사용 권한을 부여하지 않습니다.
+Copyright © 2026 BandLoop. All rights reserved.
